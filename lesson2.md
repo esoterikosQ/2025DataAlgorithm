@@ -58,7 +58,7 @@ x_{n1} & x_{n2} & \cdots & x_{np} \\
 \begin{aligned}
 \boldsymbol {\epsilon^2} = S &=  (\boldsymbol y - \boldsymbol {X \beta})'(\boldsymbol y - \boldsymbol {X \beta}) \\
 
-&= \boldsymbol {y'y} - \underbrace{\boldsymbol {y'X\beta}}_{scalr값} - \underbrace{\boldsymbol {\beta'X'y}}_{scalr값} + \boldsymbol {\beta'X'X\beta} \\
+&= \boldsymbol {y'y} - \underbrace{\boldsymbol {y'X\beta}}_{scalar값} - \underbrace{\boldsymbol {\beta'X'y}}_{scalar값} + \boldsymbol {\beta'X'X\beta} \\
 
 \\
 
@@ -73,8 +73,6 @@ x_{n1} & x_{n2} & \cdots & x_{np} \\
 \begin{aligned}
 
 \frac { \partial {\boldsymbol S} } { \partial {\boldsymbol \beta}} &= 0 - 2\boldsymbol {X'y} + \boldsymbol { X'X\beta} + \boldsymbol { \beta'X'X} \\
-
-\\
 
 &= - 2\boldsymbol {X'y} + 2\boldsymbol { X'X\beta} = 0 \tag{normal  equation}\\
 
