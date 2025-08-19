@@ -2,13 +2,13 @@
 
 ### 1.1. 다중선형회귀를 행렬식으로 표현
 
-$$
+```math
 \boldsymbol y = \boldsymbol {X \beta} + \boldsymbol \epsilon 
-$$
+```
 
 이때, $\boldsymbol y$와 $\boldsymbol \epsilon$는 $(n \times 1)$, $\boldsymbol X$는 $(n \times p)$, $\boldsymbol \beta$는 $(p \times 1)$ 차원의 벡터와 행렬이며, $x_{11} = x_{21} = \cdots = x_{n1} = 1$는 절편항인 모형으로, 절편까지 포함한 변수의 개수가 $p$개, 관측치의 수는 $n$개이다.
 
-$$
+```math
 \boldsymbol y = \begin{pmatrix}
 y_1 \\
 y_2 \\
@@ -42,7 +42,7 @@ x_{n1} & x_{n2} & \cdots & x_{np} \\
 \vdots \\
 \epsilon_n
 \end{pmatrix}
-$$
+```
 
 ---
 
@@ -50,12 +50,11 @@ $$
 
 정규방정식을 이용하여 최소제곱법으로 회귀계수 벡터 $\boldsymbol \beta$의 추정치 $\hat {\boldsymbol \beta}$를 구하면 아래와 같다.
 
+```math
+\boldsymbol \epsilon = \boldsymbol y - \boldsymbol {X \beta}
+```
 
-$$
-\boldsymbol \epsilon = \boldsymbol y - \boldsymbol {X \beta} \\
-$$
-
-$$
+```math
 \begin{aligned}
 \boldsymbol {\epsilon^2} = S &=  (\boldsymbol y - \boldsymbol {X \beta})'(\boldsymbol y - \boldsymbol {X \beta}) \\
 
@@ -66,11 +65,11 @@ $$
 &= \boldsymbol {y'y} - 2\boldsymbol {\beta'X'y} + \boldsymbol {\beta'X'X\beta}\\
 
 \end{aligned}
-$$
+```
 
 이때, $\boldsymbol {\epsilon^2}$을 최소화하기 위한 $\boldsymbol {\beta}$를 구하기 위해서는 위 식을 $\boldsymbol {\beta}$로 미분한 값이 0이 되면 된다.
 
-$$
+```math
 \begin{aligned}
 
 \frac { \partial {\boldsymbol S} } { \partial {\boldsymbol \beta}} &= 0 - 2\boldsymbol {X'y} + \boldsymbol { X'X\beta} + \boldsymbol { \beta'X'X} \\
@@ -80,15 +79,15 @@ $$
 &= - 2\boldsymbol {X'y} + 2\boldsymbol { X'X\beta} = 0 \tag{normal  equation}\\
 
 \end{aligned}
-$$
+```
 
-$$
+```math
 \boldsymbol { X'X\beta} = \boldsymbol {X'y} \\
 
 \\
 
 \Rightarrow \boldsymbol {\hat \beta} = \boldsymbol {(X'X)^{-1}X'y}
-$$
+```
 
 - 회귀모형은 $\beta_n$의 값에 따라 달라진다. $\Rightarrow$ 회귀모형의 모수(parameter)는 회귀계수.
 
@@ -110,7 +109,7 @@ $$
 
     - 정칙행렬 : $(n \times n)$ 차원의 정방행렬의 행렬식(determinant) 값이 0이거나 rank가 $n$보다 작은 경우 정칙행렬(singular matrix)이라고 한다. 정칙행렬은 $n$차원의 입력 정보를 변환하는데, 정칙행렬의 변환차원은 $n$보다 작기 때문에 변환 과정에서 $a$개($a>1$) 이상의 차원에서 정보를 손실하고, 이 때문에 변환 후의 $(n-a)$ 차원으로부터 $n$차원의 정보를 복원할 수 없다. 따라서, 정칙행렬은 역행렬이 존재하지 않는다.
 
-- 그런데, 다변량 데이터를 입력값으로 주고 파이썬에서 회귀분석을 돌리면 회귀계수 추정값을 내준다. 그것은 패키지에서 사용하는 방법은 역행렬을 이용한 OLS가 아니라 의사역행렬(pseudo inverse matrix)을 이용하기 때문
+    - 그런데, 다변량 데이터를 입력값으로 주고 파이썬에서 회귀분석을 돌리면 회귀계수 추정값을 내준다. 그것은 패키지에서 사용하는 방법은 역행렬을 이용한 OLS가 아니라 의사역행렬(pseudo inverse matrix)을 이용하기 때문
 
     - 역행렬이 존재하지 않는다는 말은 역행렬이 무수히 많다는 뜻. 의사역행렬은 무수히 많은 역행렬 중 기하학적으로 진정한 역행렬의 값에 가장 가까운 행렬을 의미.
 
@@ -128,7 +127,7 @@ $$
 
 회귀계수 추정량 벡터 $\boldsymbol {\hat \beta}$의 분산은 아래 과정을 거쳐 구할 수 있다.
 
-$$
+```math
 \begin{aligned}
 
 \boldsymbol {\hat \beta} &= \boldsymbol { (X'X)^{-1}X'y } \\
@@ -140,22 +139,22 @@ $$
 &= \boldsymbol { \beta + (X'X)^{-1}X'\epsilon }
 
 \end{aligned}
-$$
+```
 
 따라서,
 
-$$
+```math
 \boldsymbol {\hat \beta - \beta} = \boldsymbol { (X'X)^{-1}X'\epsilon }
-$$
+```
 
 양변에 분산을 취하면,
 
-$$
+```math
 Var ( \boldsymbol {\hat \beta - \beta} ) = Var( 
-\boldsymbol { (X'X)^{-1}X'\epsilon } ) \\
+\boldsymbol { (X'X)^{-1}X'\epsilon } )
+```
 
-\qquad \\
-
+```math
 \begin{aligned}
 
 \Rightarrow Var ( \boldsymbol {\hat \beta} ) &= Var( \boldsymbol { (X'X)^{-1}X'\epsilon } ) \\
@@ -167,9 +166,7 @@ Var ( \boldsymbol {\hat \beta - \beta} ) = Var(
 &= \sigma^2 \boldsymbol{(X'X)^{-1}}
 
 \end{aligned}
-$$
-
-따라서, 회귀계수 추정치와 마찬가지로 $\boldsymbol{(X'X)^{-1}}$가 존재하지 않으면 분산도 존재하지 않는다. 역행렬 대신 의사역행렬을 이용하는 경우 분산을 구할 수는 있으나 의사역행렬에는 특잇값의 역수가 사용된다. 그런데 $n \ll p$인 경우에는 $p-n$개 이상의 특잇값이 0이 되고, 0이 아닌 경우에도 0에 가까운 특잇값을 많이 가지게 된다. 이 가중치 행렬을 포함하는 의사역행렬은 실제 데이터 간의 관계를 필요 이상으로 변환하게 되고 이것이 "큰 분산 = 추정통계량의 불안정성"으로 이어지게 된다.
+```따라서, 회귀계수 추정치와 마찬가지로 $\boldsymbol{(X'X)^{-1}}$가 존재하지 않으면 분산도 존재하지 않는다. 역행렬 대신 의사역행렬을 이용하는 경우 분산을 구할 수는 있으나 의사역행렬에는 특잇값의 역수가 사용된다. 그런데 $n \ll p$인 경우에는 $p-n$개 이상의 특잇값이 0이 되고, 0이 아닌 경우에도 0에 가까운 특잇값을 많이 가지게 된다. 이 가중치 행렬을 포함하는 의사역행렬은 실제 데이터 간의 관계를 필요 이상으로 변환하게 되고 이것이 "큰 분산 = 추정통계량의 불안정성"으로 이어지게 된다.
 
 > 의사역행렬이란? : 역행렬이 존재하지 않는 경우 다음 4가지 조건을 만족하는 유일한 행렬을 의사역행렬이라고 한다.  
 > 1. $\boldsymbol {AA^+A} = \boldsymbol A$
@@ -178,9 +175,13 @@ $$
 > 4. $\boldsymbol {(A^+A)'} = \boldsymbol {A^+A}$  
 > 
 > 의사역행렬을 구하기 위해서는 특잇값 분해(singular value decomposition, SVD)의 과정을 역으로 활용한다. 즉, $\boldsymbol A$를 다음과 같이 분해한다면,
-> $$\boldsymbol A = \boldsymbol {U \Sigma V'}$$
+> ```math
+> \boldsymbol A = \boldsymbol {U \Sigma V'}
+> ```
 > 의사역행렬은 다음과 같이 구할 수 있다.  
-> $$\boldsymbol {A^+} = \boldsymbol {V \Sigma^+ U}$$
+> ```math
+> \boldsymbol {A^+} = \boldsymbol {V \Sigma^+ U}
+> ```
 > 여기서 $\boldsymbol \Sigma^+$는 $\boldsymbol \Sigma$에서 0이 아닌 원소는 역수를 취하고 0인 원소는 0을 취한 대각행렬이다.
 
 ---
