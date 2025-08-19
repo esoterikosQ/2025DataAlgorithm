@@ -74,7 +74,7 @@ x_{n1} & x_{n2} & \cdots & x_{np} \\
 
 \frac { \partial {\boldsymbol S} } { \partial {\boldsymbol \beta}} &= 0 - 2\boldsymbol {X'y} + \boldsymbol { X'X\beta} + \boldsymbol { \beta'X'X} \\
 
-&= - 2\boldsymbol {X'y} + 2\boldsymbol { X'X\beta} = 0 \tag{normal  equation}\\
+&= - 2\boldsymbol {X'y} + 2\boldsymbol { X'X\beta} = 0 \quad \text{(normal  equation)}\\
 
 \end{aligned}
 ```
