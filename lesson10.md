@@ -20,7 +20,7 @@
 
 이와 비슷하게 통계이론에 기반한 시계열 데이터 분석 역시의 변동분을 (시점과 체계적으로 연결된 변동분) + (불규칙 오차)로 나눈다. 시계열 데이터에서는 이러한 (불규칙 오차)를 백색 잡음(white noise) 또는 정상 시계열 데이터(stationary time-series data)라고 부른다. 정상성을 정의하는 요건은 세 가지가 있는데 (1) 시간에 의존하지 않는 평균, (2) 시간에 의존하지 않는 분산, (3) 시간에 의존하지 않고 일정한 공분산이다. 아래 그림은 세 가지 요건을 잘 보여주고 있다. [그림 출처](https://wandb.ai/iamleonie/A-Gentle-Introduction-to-Time-Series-Analysis-Forecasting/reports/A-gentle-introduction-to-time-series-analysis-forecasting--VmlldzoxMDg5NDMxMw)
 
-![alt text](<Screenshot 2025-11-03 at 7.49.32 PM.png>)
+<img width="870" height="601" alt="Image" src="https://github.com/user-attachments/assets/4a0edaea-a8e8-4a33-bf84-3942a7fc8010" />
 
 가장 왼쪽 열에 있는 그림은 (1) 요건을 보여준다. 시계열 자료의 진동이 한 주기만큼 돌 때에 진동의 시점과 종점 사이 데이터의 평균을 노란색 점선으로 표시할 수 있는데, 어떤 주기에 평균을 측정하더라도 동일해야한다는 점을 보여준다.
 
